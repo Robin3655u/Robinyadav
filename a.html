@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Intranet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* A lighter gray */
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #0ea5e9, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Hide scrollbar for the sliders */
+        #treatment-slider::-webkit-scrollbar,
+        #opd-slider::-webkit-scrollbar {
+            display: none;
+        }
+        #treatment-slider,
+        #opd-slider {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        /* Custom scrollbar for notices */
+        .notice-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .notice-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .notice-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .notice-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Main Container -->
+    <div class="flex flex-col min-h-screen">
+
+        <!-- Menu Bar -->
+        <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-200">
+            <nav class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                         <svg class="h-8 w-8 text-sky-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 12h6m-6 5.25h6M5.25 6.75h.008v.008H5.25V6.75zm0 5.25h.008v.008H5.25V12z" />
+                        </svg>
+                        <a href="#" class="text-2xl font-bold text-gray-800">Company Hub</a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#" class="text-gray-600 hover:text-sky-600 font-medium transition duration-150">Home</a>
+                        <a href="#" class="text-gray-600 hover:text-sky-600 font-medium transition duration-150">Dashboard</a>
+                        <a href="#" class="text-gray-600 hover:text-sky-600 font-medium transition duration-150">Reports</a>
+                        <a href="#" class="text-gray-600 hover:text-sky-600 font-medium transition duration-150">Help</a>
+                    </div>
+                    <div class="flex items-center">
+                         <button class="text-gray-500 hover:text-sky-600 focus:outline-none md:hidden">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow container mx-auto px-6 py-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Left Section: Photo Slider -->
+                <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg shadow-gray-200/50">
+                    <h1 class="text-3xl font-bold mb-6 border-b pb-4">Company Highlights</h1>
+                    <div class="relative overflow-hidden rounded-lg h-64 sm:h-80 md:h-96 lg:h-[450px]">
+                        <!-- Slides -->
+                        <div class="slider-item absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
+                            <img src="https://placehold.co/800x450/0ea5e9/ffffff?text=Team+Success" class="w-full h-full object-cover" alt="Team celebrating success">
+                            <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 to-transparent">
+                                <h3 class="text-white text-xl md:text-2xl font-bold">Q3 Project Milestone Achieved</h3>
+                                <p class="text-gray-200 text-xs md:text-sm mt-1">A huge congratulations to the team for reaching this important goal.</p>
+                            </div>
+                        </div>
+                        <div class="slider-item absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                            <img src="https://placehold.co/800x450/8b5cf6/ffffff?text=Community+Day" class="w-full h-full object-cover" alt="Employees at a community event">
+                             <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 to-transparent">
+                                <h3 class="text-white text-xl md:text-2xl font-bold">Annual Community Service Day</h3>
+                                <p class="text-gray-200 text-xs md:text-sm mt-1">Giving back to the communities where we live and work.</p>
+                            </div>
+                        </div>
+                        <div class="slider-item absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                            <img src="https://placehold.co/800x450/10b981/ffffff?text=New+Office" class="w-full h-full object-cover" alt="New modern office space">
+                             <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 to-transparent">
+                                <h3 class="text-white text-xl md:text-2xl font-bold">Grand Opening: Tech Park Campus</h3>
+                                <p class="text-gray-200 text-xs md:text-sm mt-1">Our new state-of-the-art facility is now officially open.</p>
+                            </div>
+                        </div>
+                        <!-- Slider Controls -->
+                        <button id="prevBtn" class="absolute top-1/2 left-3 transform -translate-y-1/2 bg-white/50 hover:bg-white/80 text-gray-800 p-2 rounded-full shadow-md transition duration-200 z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button id="nextBtn" class="absolute top-1/2 right-3 transform -translate-y-1/2 bg-white/50 hover:bg-white/80 text-gray-800 p-2 rounded-full shadow-md transition duration-200 z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Right Section: Important Notice -->
+                <div class="lg:col-span-1 bg-white p-6 rounded-xl shadow-lg shadow-gray-200/50 flex flex-col">
+                    <h2 class="text-2xl font-bold mb-5 border-b pb-4">Important Notices</h2>
+                    <div class="h-96 space-y-2 overflow-y-auto pr-2 notice-scroll">
+                        <a href="#" class="block p-2 rounded-lg bg-yellow-50 hover:bg-yellow-100 transition duration-150">
+                            <span class="font-bold text-sm text-yellow-800">Scheduled Downtime:</span>
+                            <span class="text-sm text-yellow-700"> Server maintenance this Sunday. Click for details...</span>
+                        </a>
+                        <a href="#" class="block p-2 rounded-lg bg-sky-50 hover:bg-sky-100 transition duration-150">
+                            <span class="font-bold text-sm text-sky-800">Policy Update:</span>
+                            <span class="text-sm text-sky-700"> New remote work policy effective Nov 1st. Read more...</span>
+                        </a>
+                        <a href="#" class="block p-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 transition duration-150">
+                            <span class="font-bold text-sm text-emerald-800">Performance Reviews:</span>
+                            <span class="text-sm text-emerald-700"> Submissions are due by Oct 31st. Access portal...</span>
+                        </a>
+                        <a href="#" class="block p-2 rounded-lg bg-red-50 hover:bg-red-100 transition duration-150">
+                            <span class="font-bold text-sm text-red-800">Office Fire Drill:</span>
+                            <span class="text-sm text-red-700"> Mandatory drill this Friday at 11:00 AM. See routes...</span>
+                        </a>
+                        <a href="#" class="block p-2 rounded-lg bg-purple-50 hover:bg-purple-100 transition duration-150">
+                            <span class="font-bold text-sm text-purple-800">New Health Plan:</span>
+                            <span class="text-sm text-purple-700"> Enrollment is now open. Learn more and enroll...</span>
+                        </a>
+                        <a href="#" class="block p-2 rounded-lg bg-pink-50 hover:bg-pink-100 transition duration-150">
+                            <span class="font-bold text-sm text-pink-800">New Cafe Opening:</span>
+                            <span class="text-sm text-pink-700"> The new cafeteria opens next Monday. Check the menu...</span>
+                        </a>
+                        <a href="#" class="block p-2 rounded-lg bg-indigo-50 hover:bg-indigo-100 transition duration-150">
+                            <span class="font-bold text-sm text-indigo-800">Tech Training:</span>
+                            <span class="text-sm text-indigo-700"> Advanced spreadsheet training next Tuesday. Register...</span>
+                        </a>
+                        <a href="#" class="block p-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition duration-150">
+                            <span class="font-bold text-sm text-gray-800">Parking Closure:</span>
+                            <span class="text-sm text-gray-700"> North lot closed for repaving this weekend. See map...</span>
+                        </a>
+                        <a href="#" class="block p-2 rounded-lg bg-yellow-50 hover:bg-yellow-100 transition duration-150">
+                            <span class="font-bold text-sm text-yellow-800">Holiday Schedule:</span>
+                            <span class="text-sm text-yellow-700"> The upcoming holiday schedule has been posted. View...</span>
+                        </a>
+                        <a href="#" class="block p-2 rounded-lg bg-sky-50 hover:bg-sky-100 transition duration-150">
+                            <span class="font-bold text-sm text-sky-800">IT Security Update:</span>
+                            <span class="text-sm text-sky-700"> Complete mandatory training by Friday. Start now...</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Welcome Section -->
+            <div class="mt-12 bg-white p-8 rounded-xl shadow-lg shadow-gray-200/50">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+                    <!-- Text Content -->
+                    <div class="md:col-span-3">
+                        <h2 class="text-4xl font-bold text-gray-800">Welcome to Naiminath</h2>
+                        <div class="h-1 w-24 bg-yellow-400 my-4"></div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Naiminath Ayurveda holds a commitment to providing quality education and top-notch facilities in the field of ayurveda medicine. We are a 100 bedded state of art Ayurvedic Hospital which is functional since 2016, where more than 200 patients visit the Outpatient Department every day and around 40 patients are present in the Inpatient Department.
+                        </p>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            The college offers a comprehensive curriculum that not only covers traditional Ayurvedic practices but also integrates modern medical advancements with its emphasis on practical training and experiential learning.
+                        </p>
+                        <a href="#" class="inline-block bg-red-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-red-700 transition duration-200 shadow-md hover:shadow-lg">
+                            Read More
+                        </a>
+                    </div>
+                    <!-- Image Content -->
+                    <div class="md:col-span-2 relative h-64 md:h-full min-h-[350px]">
+                         <img src="https://placehold.co/400x260/e2e8f0/334155?text=Hospital" alt="Naiminath Hospital Building" class="absolute top-0 right-0 w-4/5 rounded-lg shadow-2xl z-10 transform hover:scale-105 transition-transform duration-300">
+                         <img src="https://placehold.co/300x220/e2e8f0/334155?text=Treatment" alt="Ayurvedic Treatment" class="absolute bottom-0 left-0 w-3/5 rounded-lg shadow-2xl border-8 border-white z-20 transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Treatments Section -->
+            <div class="mt-12 bg-white p-6 rounded-xl shadow-lg shadow-gray-200/50">
+                <h2 class="text-3xl font-bold mb-6 border-b pb-4">Our Treatments & Services</h2>
+                <div class="relative">
+                    <div id="treatment-slider" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-6 py-4">
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/ec4899/ffffff?text=Wellness+Spa" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">Wellness Spa</h3><p class="text-sm text-gray-600 mt-1">Rejuvenate your mind and body.</p></div></div></div>
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/f59e0b/ffffff?text=Physical+Therapy" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">Physical Therapy</h3><p class="text-sm text-gray-600 mt-1">Expert care to help you recover.</p></div></div></div>
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/34d399/ffffff?text=Nutrition+Plan" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">Nutrition Plans</h3><p class="text-sm text-gray-600 mt-1">Personalized diet plans for your goals.</p></div></div></div>
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/7c3aed/ffffff?text=Yoga+Sessions" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">Yoga Sessions</h3><p class="text-sm text-gray-600 mt-1">Sessions for all skill levels.</p></div></div></div>
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/ef4444/ffffff?text=Cardio+Fitness" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">Cardio Fitness</h3><p class="text-sm text-gray-600 mt-1">Boost your heart health.</p></div></div></div>
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/3b82f6/ffffff?text=Mental+Health" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">Mental Health Support</h3><p class="text-sm text-gray-600 mt-1">Confidential counseling services.</p></div></div></div>
+                    </div>
+                    <button id="treatment-prevBtn" class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-4 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition duration-200 z-10"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
+                    <button id="treatment-nextBtn" class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-4 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition duration-200 z-10"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
+                </div>
+            </div>
+
+            <!-- OPD Section -->
+            <div class="mt-12 bg-white p-6 rounded-xl shadow-lg shadow-gray-200/50">
+                <h2 class="text-3xl font-bold mb-6 border-b pb-4">Our OPDs</h2>
+                <div class="relative">
+                    <div id="opd-slider" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth space-x-6 py-4">
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/16a34a/ffffff?text=General+OPD" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">General Medicine</h3><p class="text-sm text-gray-600 mt-1">Comprehensive care for all general health concerns.</p></div></div></div>
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/0891b2/ffffff?text=Pediatrics+OPD" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">Pediatrics</h3><p class="text-sm text-gray-600 mt-1">Specialized healthcare for infants, children, and adolescents.</p></div></div></div>
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/be185d/ffffff?text=Gynaecology+OPD" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">Gynaecology</h3><p class="text-sm text-gray-600 mt-1">Dedicated to women's health and wellness.</p></div></div></div>
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/c2410c/ffffff?text=Surgical+OPD" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">Surgical</h3><p class="text-sm text-gray-600 mt-1">Consultations and follow-ups for surgical procedures.</p></div></div></div>
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/65a30d/ffffff?text=Ayurveda+OPD" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">Panchakarma</h3><p class="text-sm text-gray-600 mt-1">Holistic Ayurvedic consultations and therapies.</p></div></div></div>
+                        <div class="snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"><div class="rounded-lg overflow-hidden shadow-md"><img src="https://placehold.co/600x400/9333ea/ffffff?text=Dental+OPD" class="w-full h-48 object-cover"><div class="p-4"><h3 class="font-bold text-lg">Dental</h3><p class="text-sm text-gray-600 mt-1">Complete dental care and oral hygiene services.</p></div></div></div>
+                    </div>
+                    <button id="opd-prevBtn" class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-4 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition duration-200 z-10"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
+                    <button id="opd-nextBtn" class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-4 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition duration-200 z-10"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
+                </div>
+            </div>
+
+            <!-- Reviews and Testimonials Section -->
+            <div class="mt-12 bg-white p-6 rounded-xl shadow-lg shadow-gray-200/50">
+                <h2 class="text-3xl font-bold mb-6 border-b pb-4">Patient Stories & Reviews</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Written Review 1 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-inner flex flex-col justify-between">
+                        <div>
+                            <p class="text-gray-600 italic">"The care and attention I received were exceptional. The team is not only professional but also genuinely caring. Highly recommended!"</p>
+                        </div>
+                        <div class="mt-4 text-right">
+                            <p class="font-bold text-gray-800">Priya Sharma</p>
+                            <p class="text-sm text-yellow-500">★★★★★</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Review 1 -->
+                    <div class="rounded-lg overflow-hidden shadow-md relative group cursor-pointer">
+                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Video+Testimonial" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/30 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Written Review 2 -->
+                     <div class="bg-gray-50 p-6 rounded-lg shadow-inner flex flex-col justify-between">
+                        <div>
+                            <p class="text-gray-600 italic">"A wonderful experience from start to finish. The facilities are top-notch and the staff made me feel comfortable throughout my treatment."</p>
+                        </div>
+                        <div class="mt-4 text-right">
+                            <p class="font-bold text-gray-800">Amit Singh</p>
+                            <p class="text-sm text-yellow-500">★★★★★</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Review 2 -->
+                    <div class="rounded-lg overflow-hidden shadow-md relative group cursor-pointer">
+                        <img src="https://placehold.co/600x400/16a34a/ffffff?text=Patient+Story" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/30 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Written Review 3 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-inner flex flex-col justify-between">
+                        <div>
+                            <p class="text-gray-600 italic">"The personalized treatment plan made a huge difference. I'm grateful for the expertise and support I received."</p>
+                        </div>
+                        <div class="mt-4 text-right">
+                            <p class="font-bold text-gray-800">Sunita Rao</p>
+                            <p class="text-sm text-yellow-500">★★★★★</p>
+                        </div>
+                    </div>
+                    
+                     <!-- Video Review 3 -->
+                    <div class="rounded-lg overflow-hidden shadow-md relative group cursor-pointer">
+                        <img src="https://placehold.co/600x400/c2410c/ffffff?text=Success+Story" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div class="w-16 h-16 bg-white/30 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white mt-auto">
+            <div class="container mx-auto px-6 py-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Company Hub</h3>
+                        <p class="text-gray-400 text-sm">Your central portal for company news, resources, and tools.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="text-gray-400 hover:text-sky-400">Careers</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-sky-400">Contact Us</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-sky-400">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-sky-400">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                        <address class="text-gray-400 text-sm not-italic">
+                            <p>Etawah, Uttar Pradesh, India</p>
+                            <p>Email: contact@company.com</p>
+                            <p>Phone: +91 123 456 7890</p>
+                        </address>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                        <p class="text-gray-400 text-sm mb-3">Stay up-to-date with our latest news.</p>
+                        <form class="flex">
+                            <input type="email" placeholder="Your email" class="w-full rounded-l-md px-3 py-2 text-sm text-gray-800 focus:outline-none">
+                            <button type="submit" class="bg-sky-600 hover:bg-sky-700 text-white font-semibold px-4 py-2 rounded-r-md">Go</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="mt-10 border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+                    <p>&copy; 2025 Company Name. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Logic for the main highlight slider
+            const slides = document.querySelectorAll('.slider-item');
+            const mainPrevBtn = document.getElementById('prevBtn');
+            const mainNextBtn = document.getElementById('nextBtn');
+            
+            if (slides.length > 0) {
+                let currentSlide = 0;
+                let slideInterval;
+
+                function showSlide(index) {
+                    if (index >= slides.length) {
+                        currentSlide = 0;
+                    } else if (index < 0) {
+                        currentSlide = slides.length - 1;
+                    } else {
+                        currentSlide = index;
+                    }
+                    slides.forEach((slide, i) => {
+                        slide.style.opacity = i === currentSlide ? '1' : '0';
+                    });
+                }
+
+                function startSlider() {
+                    slideInterval = setInterval(() => {
+                        showSlide(currentSlide + 1);
+                    }, 5000);
+                }
+
+                function resetSliderInterval() {
+                    clearInterval(slideInterval);
+                    startSlider();
+                }
+
+                mainNextBtn.addEventListener('click', () => {
+                    showSlide(currentSlide + 1);
+                    resetSliderInterval();
+                });
+
+                mainPrevBtn.addEventListener('click', () => {
+                    showSlide(currentSlide - 1);
+                    resetSliderInterval();
+                });
+                
+                startSlider();
+            }
+
+            // Generic logic for horizontal sliders
+            function setupSlider(sliderId, prevBtnId, nextBtnId) {
+                const slider = document.getElementById(sliderId);
+                const prevBtn = document.getElementById(prevBtnId);
+                const nextBtn = document.getElementById(nextBtnId);
+
+                if (slider && prevBtn && nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        const slideWidth = slider.querySelector('div').clientWidth;
+                        slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+                    });
+
+                    prevBtn.addEventListener('click', () => {
+                        const slideWidth = slider.querySelector('div').clientWidth;
+                        slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+                    });
+                }
+            }
+            
+            // Initialize all horizontal sliders
+            setupSlider('treatment-slider', 'treatment-prevBtn', 'treatment-nextBtn');
+            setupSlider('opd-slider', 'opd-prevBtn', 'opd-nextBtn');
+        });
+    </script>
+
+</body>
+</html>
+
